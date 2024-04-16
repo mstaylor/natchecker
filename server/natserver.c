@@ -321,13 +321,13 @@ void servemain(char * server)
     fprintf(stderr, "becoming a daemon\n");
 
     /* Become a daemon */
-    /*rc = fork();
+    rc = fork();
     if (rc < 0)
         perrordie("fork");
     if (rc != 0) {
         fprintf(stderr, "fork returns %i and exit\n", rc);
         exit(0);
-    }*/
+    }
 
     /* Loop forever receiving messages and sending pings */
     while (1) {
