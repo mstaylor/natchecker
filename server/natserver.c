@@ -24,9 +24,9 @@
 
 #define NTRIES		5
 
-#define SERV1		"pdos.lcs.mit.edu"
-#define SERV2		"tears.lcs.mit.edu"
-#define SERV3		"sure.lcs.mit.edu"
+#define SERV1		"natchecker-server1.aws-cylondata.com"
+#define SERV2		"natchecker-server2.aws-cylondata.com"
+#define SERV3		"natchecker-server3.aws-cylondata.com"
 
 #define SERVPORT	9856	/* Public port for requests from clients */
 #define PRIVPORT	9857	/* Private port for bounce requests only */
