@@ -16,4 +16,4 @@ ENV SERVER 1
 WORKDIR /server
 COPY --from=builder /build/natserver /server/natserver
 
-ENTRYPOINT /server/senatserver ${SERVER}
+ENTRYPOINT /server/natserver ${SERVER}
