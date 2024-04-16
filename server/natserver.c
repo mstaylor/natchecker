@@ -318,11 +318,14 @@ void servemain()
     if (listen(tcpsock, 0) < 0)
         perrordie("listen");
 
+    fprintf(stderr, "becoming a daemon\n");
+
     /* Become a daemon */
     rc = fork();
     if (rc < 0)
         perrordie("fork");
     if (rc != 0)
+        fprintf(stderr, "fork returns %i and exit\n", rc);
         exit(0);
 
     /* Loop forever receiving messages and sending pings */
