@@ -283,7 +283,7 @@ void serveudp(int udpsock)
     }
 }
 
-void servemain(char * server)
+void servemain()
 {
     int tcpsock, udpsock;
     struct sockaddr_in sin;
@@ -291,11 +291,11 @@ void servemain(char * server)
 
     /* Lookup our special "bounce" server */
     sin3.sin_family = AF_INET;
-    getaddr(server, &sin3.sin_addr);
+    getaddr(SERV3, &sin3.sin_addr);
     sin3.sin_port = htons(PRIVPORT);
     if (verbose)
         fprintf(stderr, "bounce server %s at %s\n",
-                server, inet_ntoa(sin3.sin_addr));
+                SERV3, inet_ntoa(sin3.sin_addr));
 
     /* Make the sockets we need */
     tcpsock = mksock(SOCK_STREAM);
@@ -627,11 +627,7 @@ int main(int argc, char **argv)
 
     /* Now run the appropriate server code */
     if (server < 3)
-        if (server == 1) {
-            servemain(SERV1);
-        } else  {
-            servemain(SERV2);
-        }
+        servemain();
     else
         bouncemain();
 
